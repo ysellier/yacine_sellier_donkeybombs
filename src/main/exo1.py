@@ -21,7 +21,7 @@ from pystk2_gymnasium.envs import STKRaceMultiEnv, AgentSpec
 from pystk2_gymnasium.definitions import CameraMode
 
 MAX_TEAMS = 1 #Changement ici pour dire qu'il n'y aura qu'un seul kart comme demandé par la consigne
-MAX_STEPS = 1000
+MAX_STEPS = 100 #Réduction du temps de la course (inutile d'avoir une longue course pour voir le kart tourner sur lui-meme)
 NB_RACES = 1
 
 # Get the current timestamp
