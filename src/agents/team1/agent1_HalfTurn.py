@@ -17,7 +17,7 @@ class Agent1HalfTurn(KartAgent):
         self.pilot = pilot
         super().__init__(env)
         self.conf = conf
-        self.origin = -1
+        self.origin = -100.0
 
     def choose_action(self, obs):
         """
@@ -29,13 +29,14 @@ class Agent1HalfTurn(KartAgent):
         Returns:
             dict: Action marche arrière, sinon appel de MidPilot
         """
-        if self.origin == -1 : #Connaître la direction pour laquelle le kart pointe au début de la course
-            self.origin = obs["front"][2] 
+        #Connaître le centre de la piste vers lequel on pointe
+        if self.origin == -100.0 :
+            self.origin = obs["center_path"][2] 
         
-        if obs["front"][2] != -self.origin : #Effectuer la marche arrière jusqu'à qu'on pointe vers la direction opposée que le début de la course
+        if abs(obs["center_path"][2] - self.origin) < 0.1 : #Effectuer la marche arrière jusqu'à qu'on pointe vers la direction opposée que le début de la course
             return {
-                "acceleration": 0,
-                "steer": 0.25,
+                "acceleration": 0.01,
+                "steer": 1,
                 "brake": True,
                 "drift": False, "nitro": False, "rescue": False, "fire": False
             }
