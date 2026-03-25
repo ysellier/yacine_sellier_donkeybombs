@@ -12,7 +12,7 @@ class Agent6(KartAgent):
         self.agent_positions = []
         self.obs = None
         self.isEnd = False
-        self.name = "Team6" # replace with your chosen name
+        self.name = "YacineSELLIER" # replace with your chosen name
 
     def reset(self):
         self.obs, _ = self.env.reset()
@@ -22,8 +22,8 @@ class Agent6(KartAgent):
         return self.isEnd
 
     def choose_action(self, obs):
-        acceleration = random.random()
-        steering = random.random()
+        acceleration = 0.5
+        steering = 1
         action = {
             "acceleration": acceleration,
             "steer": steering,
