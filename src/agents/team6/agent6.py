@@ -22,7 +22,7 @@ class Agent6(KartAgent):
         return self.isEnd
 
     def choose_action(self, obs):
-        acceleration = 0.5 #On le fait légèrement avancer pour réellement le voir tourner, et qu'il n'essaye pas de tourner sur place
+        acceleration = 0.2 #On le fait légèrement avancer pour réellement le voir tourner, et qu'il n'essaye pas de tourner sur place
         steering = 1 #Il ne fera que tourner à droite
         action = {
             "acceleration": acceleration,
