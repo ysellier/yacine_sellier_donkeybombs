@@ -33,7 +33,7 @@ class Agent1HalfTurn(KartAgent):
         if self.origin == -100.0 :
             self.origin = obs["center_path"][2] 
         
-        if abs(obs["center_path"][2] - self.origin) < 0.1 : #Effectuer la marche arrière jusqu'à qu'on pointe vers la direction opposée que le début de la course
+        if obs["center_path"][2] != self.origin : #Effectuer la marche arrière jusqu'à qu'on pointe vers la direction opposée que le début de la course
             return {
                 "acceleration": 0.01,
                 "steer": 1,
