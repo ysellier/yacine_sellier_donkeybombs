@@ -5,9 +5,8 @@ from agents.kart_agent import KartAgent
 
 class Agent7Rescue(KartAgent):
     """
-    Agent de base 'Donkey Bombs Mid'
-    Responsable du suivi de piste principal en utilisant un contrôle Proportionnel-Dérivé
-    et une gestion d'anticipation dynamique basée sur la vitesse du kart
+    Agent de base 'Rescue'
+    Objectif : Effectuer le chemin effectué en marche arrière
     """
     # AGENT DE BASE : Sa seule responsabilité est de suivre la piste avec anticipation
     def __init__(self, env, conf, path_lookahead=3):
@@ -145,7 +144,7 @@ class Agent7Rescue(KartAgent):
         accel = 0 #Il n'avance pas
         brake = True #Il recule
 
-        return accel, brake, -steering #Marche arrière, donc steering inversé
+        return accel, brake, -steering #Marche arrière, donc steering inverse
 
     def choose_action(self, obs):
         """

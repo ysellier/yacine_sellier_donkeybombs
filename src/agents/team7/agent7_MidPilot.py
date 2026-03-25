@@ -5,7 +5,7 @@ from agents.kart_agent import KartAgent
 
 class Agent7Mid(KartAgent):
     """
-    Agent de base 'Donkey Bombs Mid'
+    Agent de base 'Mid'
     Responsable du suivi de piste principal en utilisant un contrôle Proportionnel-Dérivé
     et une gestion d'anticipation dynamique basée sur la vitesse du kart
     """
