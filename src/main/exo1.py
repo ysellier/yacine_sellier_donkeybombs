@@ -15,11 +15,12 @@ from dataclasses import dataclass
 # Append the "src" folder to sys.path.
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..", "src")))
 
+#Suppression des agents 1 à 5 ainsi que l'agent 7
 from agents.team6.agent6 import Agent6
 from pystk2_gymnasium.envs import STKRaceMultiEnv, AgentSpec
 from pystk2_gymnasium.definitions import CameraMode
 
-MAX_TEAMS = 1
+MAX_TEAMS = 1 #Changement ici pour dire qu'il n'y aura qu'un seul kart comme demandé par la consigne
 MAX_STEPS = 1000
 NB_RACES = 1
 
@@ -95,6 +96,7 @@ def create_race():
     agents = []
     names = []
 
+    #Suppression des agents 1 à 5 ainsi que l'agent 7
     agents.append(Agent6(env, path_lookahead=3))
     np.random.shuffle(agents)
 

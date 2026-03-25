@@ -12,7 +12,7 @@ class Agent6(KartAgent):
         self.agent_positions = []
         self.obs = None
         self.isEnd = False
-        self.name = "YacineSELLIER" # replace with your chosen name
+        self.name = "YacineSELLIER" # Changement du nom comme demandé
 
     def reset(self):
         self.obs, _ = self.env.reset()
@@ -22,8 +22,8 @@ class Agent6(KartAgent):
         return self.isEnd
 
     def choose_action(self, obs):
-        acceleration = 0.5
-        steering = 1
+        acceleration = 0.5 #On le fait légèrement avancer pour réellement le voir tourner, et qu'il n'essaye pas de tourner sur place
+        steering = 1 #Il ne fera que tourner à droite
         action = {
             "acceleration": acceleration,
             "steer": steering,
