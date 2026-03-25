@@ -15,18 +15,13 @@ from dataclasses import dataclass
 # Append the "src" folder to sys.path.
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..", "src")))
 
-from agents.team1.agent1 import Agent1
-from agents.team2.agent2 import Agent2
-from agents.team3.agent3 import Agent3
-from agents.team4.agent4 import Agent4
-from agents.team5.agent5 import Agent5
-from agents.team6.agent6 import Agent6
+#Suppression des agents 1 à 6
 from agents.team7.agent7 import Agent7
 from pystk2_gymnasium.envs import STKRaceMultiEnv, AgentSpec
 from pystk2_gymnasium.definitions import CameraMode
 
-MAX_TEAMS = 7
-MAX_STEPS = 1000
+MAX_TEAMS = 1 #Changement pour indiquer qu'il y a uniquiement un seul agent
+MAX_STEPS = 200 #Changement du temps comme indiqué avec un circuit avec 200 step
 NB_RACES = 1
 
 # Get the current timestamp
@@ -101,12 +96,7 @@ def create_race():
     agents = []
     names = []
 
-    agents.append(Agent1(env, path_lookahead=3))
-    agents.append(Agent2(env, path_lookahead=3))
-    agents.append(Agent3(env, path_lookahead=3))
-    agents.append(Agent4(env, path_lookahead=3))
-    agents.append(Agent5(env, path_lookahead=3))
-    agents.append(Agent6(env, path_lookahead=3))
+    #Suppression des agents 1 à 6
     agents.append(Agent7(env, path_lookahead=3))
     np.random.shuffle(agents)
 
@@ -155,6 +145,7 @@ def single_race(env, agents, names, scores):
         done = (nb_finished == 5)
         positions.append(pos)
         distances.append(dist)
+    print("Nombre de pas écoulé : " + steps+1) #+1 car on commence à 0, donc le programme va l'incrémenter jusqu'à 199, c'est-à-dire, 200 fois
     pos_avg = np.array(positions).mean(axis=0)
     pos_std = np.array(positions).std(axis=0)
     dist_avg = np.array(distances).mean(axis=0)
